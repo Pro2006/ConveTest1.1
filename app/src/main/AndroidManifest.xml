@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SixthLessonNotebook"
         tools:targetApi="31">
         <activity
+            android:name=".view.TokenActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.AddNotesActivity"
             android:exported="false">
             <meta-data

@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity  {
     private static final String API_KEY = "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";
 
     // создание полей
-    private ImageButton imageButton;
+    private Button yesButton, noButton;
     private Button gpt_btn;
 
 
@@ -25,9 +25,12 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         // присваивание id полям
+        yesButton = findViewById(R.id.yesButton);
+        noButton = findViewById(R.id.noButton);
+
 
         // обработка нажатия кнопки
-        imageButton.setOnClickListener(listener);
+        yesButton.setOnClickListener(listener);
         gpt_btn.setOnClickListener(listener);
 
 
