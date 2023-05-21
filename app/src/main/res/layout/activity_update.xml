@@ -4,20 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_library"
+    android:background="#484A68"
     tools:context=".view.UpdateActivity">
+
 
     <EditText
         android:id="@+id/title"
-        android:layout_width="380dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/shape_recyclerview"
+        android:layout_width="264dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
-        android:hint="Введите название заметки"
+        android:hint="Title..."
         android:inputType="textPersonName"
         android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,45 +29,71 @@
         android:id="@+id/description"
         android:layout_width="380dp"
         android:layout_height="480dp"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/shape_recyclerview"
+        android:layout_marginTop="168dp"
         android:ems="10"
         android:gravity="top"
-        android:hint="Введите описание"
+        android:hint="Description"
         android:inputType="textPersonName"
         android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="380dp"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
+        android:layout_width="381dp"
+        android:layout_height="64dp"
         android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description">
+        app:layout_constraintTop_toBottomOf="@+id/description"
+        app:layout_constraintVertical_bias="0.619">
 
         <Button
             android:id="@+id/update_note"
             android:layout_width="170dp"
             android:layout_height="70dp"
-            android:backgroundTint="#D38329"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:text="Обновить" />
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/white"
+            android:text="UPDATE"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/delete_note"
             android:layout_width="170dp"
             android:layout_height="70dp"
-            android:backgroundTint="#D38329"
-            android:layout_marginEnd="10dp"
             android:layout_marginStart="10dp"
-            android:text="Удалить" />
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/white"
+            android:text="DELETE"
+            android:textColor="@color/black" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="97dp"
+        android:layout_height="67dp"
+        android:backgroundTint="@color/white"
+        android:text="USE"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.129" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        app:srcCompat="@drawable/back_arrow"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

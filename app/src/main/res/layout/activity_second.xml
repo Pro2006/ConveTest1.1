@@ -4,35 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_library"
+    android:background="#484A68"
     tools:context=".view.SecondActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="376dp"
+        android:layout_height="635dp"
         android:layout_margin="17dp"
         android:padding="5dp"
-        android:background="@drawable/shape_recyclerview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdd"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:backgroundTint="#E4902F"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         android:tintMode="add"
-        app:tint="@null"
         app:fabCustomSize="80dp"
-        app:maxImageSize="59dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/pencil" />
+        app:layout_constraintHorizontal_bias="0.987"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        app:maxImageSize="59dp"
+        app:srcCompat="@drawable/pencil"
+        app:tint="@null" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="55dp"
+        android:layout_height="62dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025"
+        app:srcCompat="@android:drawable/ic_menu_more" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

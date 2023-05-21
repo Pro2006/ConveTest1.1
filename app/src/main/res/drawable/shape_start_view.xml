@@ -2,8 +2,9 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item> <!--Элемент списка-->
         <shape android:shape="rectangle"> <!--Форма-->
-            <solid android:color="#FFFFFF"/> <!--Цвет фона-->
+            <solid android:color="#545678"/> <!--Цвет фона-->
             <corners android:radius="14dp"/> <!--Скругление углов-->
         </shape>
     </item>
+
 </selector>

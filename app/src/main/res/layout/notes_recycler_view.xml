@@ -14,12 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:text="Название заметки"
+        android:text="Title"
         android:textColor="#322312"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/description"
@@ -28,9 +28,9 @@
         android:layout_below="@+id/title"
         android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:text="Описание заметки"
+        android:text="Description"
         android:textColor="#322312"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"/>
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 </androidx.constraintlayout.widget.ConstraintLayout>
