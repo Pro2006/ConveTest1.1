@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,11 +11,8 @@ import com.msaggik.sixthlessonnotebook.R;
 
 public class MainActivity extends AppCompatActivity  {
 
-    private static final String API_KEY = "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";
-
     // создание полей
     private Button yesButton, noButton;
-    private Button gpt_btn;
 
 
     @Override
@@ -31,7 +27,7 @@ public class MainActivity extends AppCompatActivity  {
 
         // обработка нажатия кнопки
         yesButton.setOnClickListener(listener);
-        gpt_btn.setOnClickListener(listener);
+        noButton.setOnClickListener(listener);
 
 
     }
@@ -40,9 +36,18 @@ public class MainActivity extends AppCompatActivity  {
     private View.OnClickListener listener = new View.OnClickListener()  {
         @Override
         public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.yesButton:
                     // переключение на новую активность
-                    Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-                    startActivity(intent);
+                    Intent intentSecond = new Intent(getApplicationContext(), SecondActivity.class);
+                    startActivity(intentSecond);
+                case R.id.noButton:
+                    Intent intentToken = new Intent(getApplicationContext(), TokenActivity.class);
+                    startActivity(intentToken);
+
+
+            }
+
 
             }
 
