@@ -8,11 +8,14 @@ import java.util.regex.Pattern;
 public class CommandProcessor {
     private static final String API_KEY = "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";
     public static void main(String[] args) {
-        String text = "Привет! Выполни команды chatgpt(Пример текста) и chatgpt2(Другой текст)";
+        // текст из editText
+        String text = "Привет! Выполни команды chatgpt(Пример текста) и chatgpt2(Другой текст), translate(привет)";
 
         Map<String, CommandHandler> commandHandlers = new HashMap<>();
+        // здесб добавлять новые команды после создания нового handler для них
         commandHandlers.put("chatgpt", new ChatGPTCommandHandler());
         commandHandlers.put("chatgpt2", new ChatGPT2CommandHandler());
+        commandHandlers.put("translate", new TranslateHandler());
 
         String processedText = processCommands(text, commandHandlers);
         System.out.println(processedText);
@@ -36,11 +39,11 @@ public class CommandProcessor {
 
         return buffer.toString();
     }
-
+    // супер интерфейс
     public interface CommandHandler {
         String processCommand(String commandText);
     }
-
+    //здесь начинаются handlerы для команд
     public static class ChatGPTCommandHandler implements CommandHandler {
         @Override
         public String processCommand(String commandText) {
@@ -54,6 +57,14 @@ public class CommandProcessor {
         public String processCommand(String commandText) {
             // Обработка команды chatgpt2
             return "Processed chatgpt2 command: " + commandText;
+        }
+    }
+
+    public static class TranslateHandler implements CommandHandler {
+
+        @Override
+        public String processCommand(String commandText) {
+            return "English";
         }
     }
 }

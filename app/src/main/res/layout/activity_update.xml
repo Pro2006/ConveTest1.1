@@ -10,9 +10,9 @@
 
     <EditText
         android:id="@+id/title"
-        android:layout_width="264dp"
+        android:layout_width="366dp"
         android:layout_height="69dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="136dp"
         android:ems="10"
         android:hint="Title..."
         android:inputType="textPersonName"
@@ -21,15 +21,15 @@
         android:textColorHint="@color/white"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/description"
-        android:layout_width="380dp"
-        android:layout_height="480dp"
-        android:layout_marginTop="168dp"
+        android:layout_width="366dp"
+        android:layout_height="398dp"
+        android:layout_marginTop="216dp"
         android:ems="10"
         android:gravity="top"
         android:hint="Description"
@@ -38,11 +38,12 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="381dp"
         android:layout_height="64dp"
         android:gravity="center"
@@ -75,7 +76,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/useBtn"
         android:layout_width="97dp"
         android:layout_height="67dp"
         android:backgroundTint="@color/white"
@@ -83,17 +84,21 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
+        app:layout_constraintVertical_bias="0.024" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/backBtn"
         android:layout_width="54dp"
         android:layout_height="54dp"
-        app:srcCompat="@drawable/back_arrow"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/back_arrow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,7 +39,7 @@
         app:tint="@null" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/settingsBtn"
         android:layout_width="55dp"
         android:layout_height="62dp"
         app:layout_constraintBottom_toBottomOf="parent"

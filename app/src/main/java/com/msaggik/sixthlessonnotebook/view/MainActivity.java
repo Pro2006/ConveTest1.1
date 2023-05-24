@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.msaggik.sixthlessonnotebook.R;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
     // создание полей
     private Button yesButton, noButton;
@@ -33,23 +33,20 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     // создание слушателя
-    private View.OnClickListener listener = new View.OnClickListener()  {
+    private View.OnClickListener listener = new View.OnClickListener() {
+
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.yesButton:
+            if (view.getId() == R.id.yesButton) {
                     // переключение на новую активность
                     Intent intentSecond = new Intent(getApplicationContext(), SecondActivity.class);
-                    startActivity(intentSecond);
-                case R.id.noButton:
+                    startActivity(intentSecond);}
+            else{
                     Intent intentToken = new Intent(getApplicationContext(), TokenActivity.class);
                     startActivity(intentToken);
 
 
             }
-
-
-            }
-
+        }
     };
 }

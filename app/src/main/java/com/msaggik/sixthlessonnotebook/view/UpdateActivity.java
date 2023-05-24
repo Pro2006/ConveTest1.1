@@ -1,17 +1,16 @@
 package com.msaggik.sixthlessonnotebook.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.msaggik.sixthlessonnotebook.R;
 import com.msaggik.sixthlessonnotebook.viewmodel.DatabaseHelper;
 
@@ -20,6 +19,7 @@ public class UpdateActivity extends AppCompatActivity {
     // создание полей
     private EditText title, description;
     private Button updateNote, deleteNote;
+    private ImageView backBtn;
     private String id;
 
     @Override
@@ -32,6 +32,7 @@ public class UpdateActivity extends AppCompatActivity {
         description = findViewById(R.id.description);
         updateNote = findViewById(R.id.update_note);
         deleteNote = findViewById(R.id.delete_note);
+        backBtn = findViewById(R.id.backBtn);
 
         // считывание данных из переданного намерения Intent
         Intent intent = getIntent();
@@ -43,6 +44,7 @@ public class UpdateActivity extends AppCompatActivity {
         // обработка нажатия кнопки
         updateNote.setOnClickListener(listener);
         deleteNote.setOnClickListener(listener);
+        backBtn.setOnClickListener(listener);
     }
 
     // задание слушателя
