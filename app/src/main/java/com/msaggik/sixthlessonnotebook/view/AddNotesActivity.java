@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.msaggik.sixthlessonnotebook.R;
+import com.msaggik.sixthlessonnotebook.model.CommandProcessor;
 import com.msaggik.sixthlessonnotebook.viewmodel.DatabaseHelper;
 
 public class AddNotesActivity extends AppCompatActivity {
@@ -19,12 +20,14 @@ public class AddNotesActivity extends AppCompatActivity {
     // создание полей
     private EditText title, description;
     private ImageView backBtnAdd;
+    private CommandProcessor commandProcessor;
     private Button addNote, useBtnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notes);
+        commandProcessor = new CommandProcessor();
 
         // присваивание id полям
         title = findViewById(R.id.title_edit);
@@ -36,6 +39,7 @@ public class AddNotesActivity extends AppCompatActivity {
         // обработка нажатия кнопки
         addNote.setOnClickListener(listener);
         backBtnAdd.setOnClickListener(listener);
+        useBtnAdd.setOnClickListener(listener);
     }
 
     private View.OnClickListener listener = new View.OnClickListener() {
@@ -63,7 +67,7 @@ public class AddNotesActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // установления флага экономии ресурсов
                     startActivity(intent);
                 case R.id.useBtnAdd:
-                    break;
+                    description.setText(commandProcessor.Process(description.getText().toString()));
                     // место для обработки текстовым процессором editText
             }
         }

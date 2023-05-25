@@ -5,11 +5,13 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
 public class CommandProcessor {
-    private static final String API_KEY = "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";
-    public static void main(String[] args) {
+    private final String API_KEY = "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";
+
+    public String Process(String preProcessedText) {
         // текст из editText
-        String text = "Привет! Выполни команды chatgpt(Пример текста) и chatgpt2(Другой текст), translate(привет)";
 
         Map<String, CommandHandler> commandHandlers = new HashMap<>();
         // здесб добавлять новые команды после создания нового handler для них
@@ -17,8 +19,8 @@ public class CommandProcessor {
         commandHandlers.put("chatgpt2", new ChatGPT2CommandHandler());
         commandHandlers.put("translate", new TranslateHandler());
 
-        String processedText = processCommands(text, commandHandlers);
-        System.out.println(processedText);
+        String processedText = processCommands(preProcessedText, commandHandlers);
+        return processedText;
     }
 
     public static String processCommands(String text, Map<String, CommandHandler> commandHandlers) {
