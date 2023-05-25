@@ -53,8 +53,6 @@
             android:scrollbars="vertical"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
-
-
     </ScrollView>
 
     <LinearLayout
