@@ -12,13 +12,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.msaggik.sixthlessonnotebook.R;
+import com.msaggik.sixthlessonnotebook.model.CommandProcessor;
 import com.msaggik.sixthlessonnotebook.viewmodel.DatabaseHelper;
 
 public class UpdateActivity extends AppCompatActivity {
 
     // создание полей
     private EditText title, description;
-    private Button updateNote, deleteNote;
+    private CommandProcessor commandProcessor;
+    private Button updateNote, deleteNote, useBtn;
     private ImageView backBtn;
     private String id;
 
@@ -26,6 +28,7 @@ public class UpdateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+        commandProcessor = new CommandProcessor();
 
         // присваивание id полям
         title = findViewById(R.id.title);
@@ -33,6 +36,9 @@ public class UpdateActivity extends AppCompatActivity {
         updateNote = findViewById(R.id.update_note);
         deleteNote = findViewById(R.id.delete_note);
         backBtn = findViewById(R.id.backBtn);
+        useBtn = findViewById(R.id.useBtn);
+        description.setHorizontallyScrolling(false);
+        description.setMaxLines(Integer.MAX_VALUE);
 
         // считывание данных из переданного намерения Intent
         Intent intent = getIntent();
@@ -45,14 +51,20 @@ public class UpdateActivity extends AppCompatActivity {
         updateNote.setOnClickListener(listener);
         deleteNote.setOnClickListener(listener);
         backBtn.setOnClickListener(listener);
+        useBtn.setOnClickListener(listener);
     }
 
     // задание слушателя
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+            if (view.getId() == R.id.useBtn) {
+                description.setText(commandProcessor.Process(description.getText().toString()));
+                // место для обработки текстовым процессором editText
+            }
             // если исправленный текст не пустой, то обновление записи в БД
-            if (!TextUtils.isEmpty(title.getText().toString()) && !TextUtils.isEmpty(description.getText().toString())) {
+            else if (!TextUtils.isEmpty(title.getText().toString()) && !TextUtils.isEmpty(description.getText().toString())) {
                 DatabaseHelper database = new DatabaseHelper(UpdateActivity.this); // создание объекта БД в текущей активности
 
                 // обработка кнопки
