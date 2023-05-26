@@ -1,10 +1,11 @@
 package com.msaggik.sixthlessonnotebook.service;
 
+import com.google.gson.Gson;
 import com.msaggik.sixthlessonnotebook.model.ChatGptRequest;
 import com.msaggik.sixthlessonnotebook.model.ChatGptResponse;
-import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -16,11 +17,14 @@ public class ChatGptService {
     public static final String API_URL = "https://api.openai.com/v1/completions";
     private final Gson gson = new Gson();
     private final String apiKey;
+    private final Integer SECONDS = 50;
     private final OkHttpClient client;
 
     public ChatGptService(String apiKey) {
         this.apiKey = apiKey;
-        this.client = new OkHttpClient();
+        this.client = new OkHttpClient.Builder()
+                .readTimeout(50, TimeUnit.SECONDS) // Установка времени ожидания чтения данных
+                .build();
     }
 
     public String search(String searchString) throws IOException {
@@ -28,7 +32,7 @@ public class ChatGptService {
                 "text-davinci-003",
                 searchString,
                 1,
-                100
+                1000
         );
 
         String body = gson.toJson(chatGptRequest);

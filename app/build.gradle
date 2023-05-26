@@ -16,6 +16,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES' // Исключить файлы из папки META-INF/DEPENDENCIES
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'mozilla/public-suffix-list.txt'
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,9 +38,9 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'org.projectlombok:lombok:1.18.26'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'org.apache.commons:commons-math3:3.6.1'
     implementation 'com.google.android.exoplayer:extension-okhttp:2.18.7'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.5'

@@ -2,6 +2,8 @@ package com.msaggik.sixthlessonnotebook.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,7 @@ public class AddNotesActivity extends AppCompatActivity {
     // создание полей
     private EditText title, description;
     private ImageView backBtnAdd;
+    private Handler handler;
     private CommandProcessor commandProcessor;
     private Button addNote, useBtnAdd;
 
@@ -28,6 +31,7 @@ public class AddNotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notes);
         commandProcessor = new CommandProcessor();
+        handler = new Handler(Looper.getMainLooper());
 
         // присваивание id полям
         title = findViewById(R.id.title_edit);
@@ -40,6 +44,16 @@ public class AddNotesActivity extends AppCompatActivity {
         addNote.setOnClickListener(listener);
         backBtnAdd.setOnClickListener(listener);
         useBtnAdd.setOnClickListener(listener);
+    }
+
+    private void updateTextView(final String text) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                // Обновляем элемент интерфейса
+                description.setText(text);
+            }
+        });
     }
 
     private View.OnClickListener listener = new View.OnClickListener() {
@@ -67,7 +81,18 @@ public class AddNotesActivity extends AppCompatActivity {
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // установления флага экономии ресурсов
                     startActivity(intent);
                 case R.id.useBtnAdd:
-                    description.setText(commandProcessor.Process(description.getText().toString()));
+                    String result = null;
+                    Thread thread = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (result == null) {
+                                // Ваш код, который нужно выполнить в отдельном потоке
+                                String result = commandProcessor.Process(description.getText().toString());
+
+                                updateTextView(result);}
+                        }
+                    });
+                    thread.start();
                     // место для обработки текстовым процессором editText
             }
         }

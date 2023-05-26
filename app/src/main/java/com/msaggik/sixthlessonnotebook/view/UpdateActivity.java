@@ -2,6 +2,8 @@ package com.msaggik.sixthlessonnotebook.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,7 @@ public class UpdateActivity extends AppCompatActivity {
     private CommandProcessor commandProcessor;
     private Button updateNote, deleteNote, useBtn;
     private ImageView backBtn;
+    private Handler handler;
     private String id;
 
     @Override
@@ -29,6 +32,7 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
         commandProcessor = new CommandProcessor();
+        handler = new Handler(Looper.getMainLooper());
 
         // присваивание id полям
         title = findViewById(R.id.title);
@@ -54,13 +58,34 @@ public class UpdateActivity extends AppCompatActivity {
         useBtn.setOnClickListener(listener);
     }
 
+    private void updateTextView(final String text) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                // Обновляем элемент интерфейса
+                description.setText(text);
+            }
+        });
+    }
+
     // задание слушателя
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
             if (view.getId() == R.id.useBtn) {
-                description.setText(commandProcessor.Process(description.getText().toString()));
+                String result = null;
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (result == null) {
+                        // Ваш код, который нужно выполнить в отдельном потоке
+                        String result = commandProcessor.Process(description.getText().toString());
+
+                        updateTextView(result);}
+                    }
+                });
+                thread.start();
                 // место для обработки текстовым процессором editText
             }
             // если исправленный текст не пустой, то обновление записи в БД

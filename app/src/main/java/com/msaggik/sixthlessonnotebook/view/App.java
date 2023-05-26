@@ -3,32 +3,15 @@ package com.msaggik.sixthlessonnotebook.view;
 import com.msaggik.sixthlessonnotebook.service.ChatGptService;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 public class App {
-    private static final String API_KEY = "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";
+    private static final String API_KEY = "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";
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static String chatGPT(String question) throws IOException, InterruptedException {
+        // Создаем исполнительский сервис с одним потоком
         ChatGptService service = new ChatGptService(API_KEY);
+        return service.search(question);
 
-        System.out.println("Java CLI application that use Chat GPT API");
-        System.out.println("---");
-
-        String queryString = "";
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println();
-            System.out.println("Enter a string to search for (or /q to quit): ");
-            queryString = scanner.nextLine();
-
-            if (queryString.equals("/q")) {
-                break;
-            }
-
-            System.out.println("Searching...");
-            String answer = service.search(queryString);
-            System.out.println(answer);
-        }
     }
 }
+
