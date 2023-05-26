@@ -23,7 +23,7 @@ public class ChatGptService {
     public ChatGptService(String apiKey) {
         this.apiKey = apiKey;
         this.client = new OkHttpClient.Builder()
-                .readTimeout(50, TimeUnit.SECONDS) // Установка времени ожидания чтения данных
+                .readTimeout(90, TimeUnit.SECONDS) // Установка времени ожидания чтения данных
                 .build();
     }
 
@@ -32,7 +32,7 @@ public class ChatGptService {
                 "text-davinci-003",
                 searchString,
                 1,
-                1000
+                4000
         );
 
         String body = gson.toJson(chatGptRequest);
