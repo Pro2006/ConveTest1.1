@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.conve.ConveNote.R;
 import com.conve.ConveNote.model.CommandProcessor;
 import com.conve.ConveNote.viewmodel.DatabaseHelper;
+import com.msaggik.sixthlessonnotebook.R;
 
 public class UpdateActivity extends AppCompatActivity {
 

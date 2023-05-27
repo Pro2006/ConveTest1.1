@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.conve.ConveNote.R;
+
+import com.msaggik.sixthlessonnotebook.R;
 
 public class MainActivity extends AppCompatActivity {
 

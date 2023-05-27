@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.conve.ConveNote.R;
+import com.msaggik.sixthlessonnotebook.R;
 
 public class TokenActivity extends AppCompatActivity {
     public String chat_gpt_token;

@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.conve.ConveNote.R;
+import com.msaggik.sixthlessonnotebook.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

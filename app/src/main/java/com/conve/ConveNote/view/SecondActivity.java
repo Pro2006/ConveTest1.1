@@ -1,20 +1,20 @@
 package com.conve.ConveNote.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.conve.ConveNote.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.conve.ConveNote.model.Notebook;
 import com.conve.ConveNote.viewmodel.Adapter;
 import com.conve.ConveNote.viewmodel.DatabaseHelper;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.msaggik.sixthlessonnotebook.R;
 
 import java.util.ArrayList;
 import java.util.List;
