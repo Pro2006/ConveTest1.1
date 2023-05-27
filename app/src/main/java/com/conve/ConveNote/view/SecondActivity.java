@@ -1,4 +1,4 @@
-package com.msaggik.sixthlessonnotebook.view;
+package com.conve.ConveNote.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,14 +8,13 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.msaggik.sixthlessonnotebook.R;
-import com.msaggik.sixthlessonnotebook.model.Notebook;
-import com.msaggik.sixthlessonnotebook.viewmodel.Adapter;
-import com.msaggik.sixthlessonnotebook.viewmodel.DatabaseHelper;
+import com.conve.ConveNote.R;
+import com.conve.ConveNote.model.Notebook;
+import com.conve.ConveNote.viewmodel.Adapter;
+import com.conve.ConveNote.viewmodel.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;

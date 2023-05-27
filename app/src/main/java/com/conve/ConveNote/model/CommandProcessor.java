@@ -1,6 +1,6 @@
-package com.msaggik.sixthlessonnotebook.model;
+package com.conve.ConveNote.model;
 
-import com.msaggik.sixthlessonnotebook.view.App;
+import com.conve.ConveNote.view.App;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,18 +12,19 @@ import java.util.regex.Pattern;
 public class CommandProcessor {
     private final String API_KEY = "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";
     public String answer;
+    public String chatgpt_token;
 
-    public String Process(String preProcessedText) {
+    public String Process(String preProcessedText, String chatgpt_token) {
         // текст из editText
 
         Map<String, CommandHandler> commandHandlers = new HashMap<>();
+        this.chatgpt_token = chatgpt_token;
         // здесб добавлять новые команды после создания нового handler для них
         commandHandlers.put("chatgpt", new ChatGPTCommandHandler());
         commandHandlers.put("translate", new TranslateHandler());
         commandHandlers.put("calcul", new CalculHandler());
 
-        String processedText = processCommands(preProcessedText, commandHandlers);
-        return processedText;
+        return processCommands(preProcessedText, commandHandlers);
     }
 
     public static String processCommands(String text, Map<String, CommandHandler> commandHandlers) {
@@ -59,13 +60,16 @@ public class CommandProcessor {
     }
 
     //здесь начинаются handlerы для команд
-    public static class ChatGPTCommandHandler implements CommandHandler {
+    public static class ChatGPTCommandHandler(String chatgpt_token) implements CommandHandler {
+
+        private App app = new App();
+
         @Override
         public String processCommand(String commandText) {
             // Обработка команды chatgpt
 
             try {
-                return App.chatGPT(commandText);
+                return app.chatGPT(commandText);
             } catch (IOException | InterruptedException e) {
                 return "Произошла ошибка, попробуйте снова chatgpt[" + commandText + "]";
             }

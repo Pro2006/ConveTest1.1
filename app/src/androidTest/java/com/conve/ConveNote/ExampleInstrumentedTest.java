@@ -1,4 +1,4 @@
-package com.msaggik.sixthlessonnotebook;
+package com.conve.ConveNote;
 
 import android.content.Context;
 

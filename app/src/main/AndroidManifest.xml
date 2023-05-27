@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.msaggik.sixthlessonnotebook">
+    package="com.conve.ConveNote">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,13 +16,13 @@
         android:theme="@style/Theme.SixthLessonNotebook"
         tools:targetApi="31">
         <activity
-            android:name=".view.SettingsActivity"
+            android:name="com.conve.ConveNote.view.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.TokenActivity"
+            android:name="com.conve.ConveNote.view.TokenActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AddNotesActivity"
+            android:name="com.conve.ConveNote.view.AddNotesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -30,7 +30,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.UpdateActivity"
+            android:name="com.conve.ConveNote.view.UpdateActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustPan">
             <meta-data
@@ -38,14 +38,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.SecondActivity"
+            android:name="com.conve.ConveNote.view.SecondActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.conve.ConveNote.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

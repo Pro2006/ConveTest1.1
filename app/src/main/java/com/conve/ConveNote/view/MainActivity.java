@@ -1,17 +1,21 @@
-package com.msaggik.sixthlessonnotebook.view;
+package com.conve.ConveNote.view;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.ConveNote.R;
 
 public class MainActivity extends AppCompatActivity {
 
     // создание полей
     private Button yesButton, noButton;
+
+    private String CHATGPT_TOKEN = "chatgtp_token";
+    private SharedPreferences chatgpt_token_setting;
 
 
     @Override
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         // присваивание id полям
         yesButton = findViewById(R.id.yesButton);
         noButton = findViewById(R.id.noButton);
+        chatgpt_token_setting = getSharedPreferences(CHATGPT_TOKEN, MODE_PRIVATE);
 
 
         // обработка нажатия кнопки

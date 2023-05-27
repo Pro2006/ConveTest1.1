@@ -1,10 +1,10 @@
-package com.msaggik.sixthlessonnotebook.view;
+package com.conve.ConveNote.view;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.ConveNote.R;
 
 public class SettingsActivity extends AppCompatActivity {
 

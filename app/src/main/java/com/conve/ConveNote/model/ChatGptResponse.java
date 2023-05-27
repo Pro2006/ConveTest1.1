@@ -1,4 +1,4 @@
-package com.msaggik.sixthlessonnotebook.model;
+package com.conve.ConveNote.model;
 
 
 import java.util.Arrays;

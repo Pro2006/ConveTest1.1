@@ -1,4 +1,4 @@
-package com.msaggik.sixthlessonnotebook.viewmodel;
+package com.conve.ConveNote.viewmodel;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -7,16 +7,15 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.msaggik.sixthlessonnotebook.R;
-import com.msaggik.sixthlessonnotebook.model.Notebook;
-import com.msaggik.sixthlessonnotebook.view.UpdateActivity;
+import com.conve.ConveNote.R;
+import com.conve.ConveNote.model.Notebook;
+import com.conve.ConveNote.view.UpdateActivity;
 
 import java.util.ArrayList;
 import java.util.List;

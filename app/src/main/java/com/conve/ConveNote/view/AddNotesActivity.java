@@ -1,4 +1,4 @@
-package com.msaggik.sixthlessonnotebook.view;
+package com.conve.ConveNote.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.msaggik.sixthlessonnotebook.R;
-import com.msaggik.sixthlessonnotebook.model.CommandProcessor;
-import com.msaggik.sixthlessonnotebook.viewmodel.DatabaseHelper;
+import com.conve.ConveNote.R;
+import com.conve.ConveNote.model.CommandProcessor;
+import com.conve.ConveNote.viewmodel.DatabaseHelper;
 
 public class AddNotesActivity extends AppCompatActivity {
 
