@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class CommandProcessor {
     private final String API_KEY = "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";
     public String answer;
-    public String chatgpt_token;
+    public static String chatgpt_token;
 
     public String Process(String preProcessedText, String chatgpt_token) {
         // текст из editText
@@ -60,9 +60,9 @@ public class CommandProcessor {
     }
 
     //здесь начинаются handlerы для команд
-    public static class ChatGPTCommandHandler(String chatgpt_token) implements CommandHandler {
+    public static class ChatGPTCommandHandler implements CommandHandler {
 
-        private App app = new App();
+        private App app = new App(chatgpt_token);
 
         @Override
         public String processCommand(String commandText) {
