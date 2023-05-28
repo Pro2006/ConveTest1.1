@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook;
+package com.conve.convenote;
 
 import static org.junit.Assert.assertEquals;
 

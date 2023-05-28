@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.view;
+package com.conve.convenote.view;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,11 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.conve.convenote.model.Notebook;
+import com.conve.convenote.viewmodel.Adapter;
+import com.conve.convenote.viewmodel.DatabaseHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.msaagik.SixthLessonNotebook.model.Notebook;
-import com.msaagik.SixthLessonNotebook.viewmodel.Adapter;
-import com.msaagik.SixthLessonNotebook.viewmodel.DatabaseHelper;
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.convenote.R;
 
 import java.util.ArrayList;
 import java.util.List;

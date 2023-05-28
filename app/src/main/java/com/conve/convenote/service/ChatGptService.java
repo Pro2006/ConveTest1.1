@@ -1,8 +1,8 @@
-package com.msaagik.SixthLessonNotebook.service;
+package com.conve.convenote.service;
 
 import com.google.gson.Gson;
-import com.msaagik.SixthLessonNotebook.model.ChatGptRequest;
-import com.msaagik.SixthLessonNotebook.model.ChatGptResponse;
+import com.conve.convenote.model.ChatGptRequest;
+import com.conve.convenote.model.ChatGptResponse;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;

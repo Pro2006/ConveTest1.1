@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.viewmodel;
+package com.conve.convenote.viewmodel;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.msaagik.SixthLessonNotebook.model.Notebook;
-import com.msaagik.SixthLessonNotebook.view.UpdateActivity;
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.convenote.model.Notebook;
+import com.conve.convenote.view.UpdateActivity;
+import com.conve.convenote.R;
 
 import java.util.ArrayList;
 import java.util.List;

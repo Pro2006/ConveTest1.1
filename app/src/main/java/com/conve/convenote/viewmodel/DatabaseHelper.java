@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.viewmodel;
+package com.conve.convenote.viewmodel;
 
 import android.content.ContentValues;
 import android.content.Context;

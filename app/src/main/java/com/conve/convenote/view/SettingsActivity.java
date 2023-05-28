@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.view;
+package com.conve.convenote.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,7 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.convenote.R;
+
 
 public class SettingsActivity extends AppCompatActivity {
     private ImageView back_view, info_view;

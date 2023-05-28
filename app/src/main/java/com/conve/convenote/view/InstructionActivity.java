@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.view;
+package com.conve.convenote.view;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,7 +6,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.convenote.R;
+
 
 public class InstructionActivity extends AppCompatActivity {
 

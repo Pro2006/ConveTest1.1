@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.msaggik.sixthlessonnotebook'
+    namespace 'com.conve.convenote'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.msaggik.sixthlessonnotebook"
+        applicationId "com.conve.convenote"
         minSdk 21
         targetSdk 33
         versionCode 1

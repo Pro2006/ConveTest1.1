@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.model;
+package com.conve.convenote.model;
 
 public class ResponseUsage {
     private int prompt_tokens;

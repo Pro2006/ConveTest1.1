@@ -1,6 +1,6 @@
-package com.msaagik.SixthLessonNotebook.view;
+package com.conve.convenote.view;
 
-import com.msaagik.SixthLessonNotebook.service.ChatGptService;
+import com.conve.convenote.service.ChatGptService;
 
 import java.io.IOException;
 

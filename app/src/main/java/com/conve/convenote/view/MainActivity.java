@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.view;
+package com.conve.convenote.view;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,7 +8,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.convenote.R;
+
 
 public class MainActivity extends AppCompatActivity {
 

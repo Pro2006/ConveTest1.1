@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.model;
+package com.conve.convenote.model;
 
 public class ResponseChoice {
     private String text;

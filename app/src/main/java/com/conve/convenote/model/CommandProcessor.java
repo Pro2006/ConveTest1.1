@@ -1,6 +1,6 @@
-package com.msaagik.SixthLessonNotebook.model;
+package com.conve.convenote.model;
 
-import com.msaagik.SixthLessonNotebook.view.App;
+import com.conve.convenote.view.App;
 
 import java.io.IOException;
 import java.util.HashMap;

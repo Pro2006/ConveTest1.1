@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook.view;
+package com.conve.convenote.view;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.msaagik.SixthLessonNotebook.model.CommandProcessor;
-import com.msaagik.SixthLessonNotebook.viewmodel.DatabaseHelper;
-import com.msaggik.sixthlessonnotebook.R;
+import com.conve.convenote.R;
+import com.conve.convenote.model.CommandProcessor;
+import com.conve.convenote.viewmodel.DatabaseHelper;
 
 public class UpdateActivity extends AppCompatActivity {
 

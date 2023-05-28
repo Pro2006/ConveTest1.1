@@ -1,4 +1,4 @@
-package com.msaagik.SixthLessonNotebook;
+package com.conve.convenote;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.msaggik.sixthlessonnotebook", appContext.getPackageName());
+        assertEquals("com.conve.convenote", appContext.getPackageName());
     }
 }
