@@ -99,15 +99,12 @@ public class UpdateActivity extends AppCompatActivity {
                 DatabaseHelper database = new DatabaseHelper(UpdateActivity.this); // создание объекта БД в текущей активности
 
                 // обработка кнопки
-                switch (view.getId()) {
-                    case R.id.update_note:
-                        // обновление заметки
-                        database.updateNotes(title.getText().toString(), description.getText().toString(), id); // обновление записи в БД по id
-                        break;
-                    case R.id.delete_note:
+                if (view.getId() == R.id.update_note) {
+                    // обновление заметки
+                    database.updateNotes(title.getText().toString(), description.getText().toString(), id); // обновление записи в БД по id
+                } else if (view.getId() == R.id.delete_note){
                         // удаление заметки
                         database.deleteSingleItem(id); // удаление записи БД по id
-                        break;
                 }
 
                 startActivity(new Intent(UpdateActivity.this, SecondActivity.class)); // переключение обратно в активность демонстрации всех записей

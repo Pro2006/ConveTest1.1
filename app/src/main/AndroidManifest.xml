@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SixthLessonNotebook"
         tools:targetApi="31">
         <activity
+            android:name="com.msaagik.SixthLessonNotebook.view.InstructionActivity"
+            android:exported="false" />
+        <activity
             android:name="com.msaagik.SixthLessonNotebook.view.SettingsActivity"
             android:exported="false" />
         <activity

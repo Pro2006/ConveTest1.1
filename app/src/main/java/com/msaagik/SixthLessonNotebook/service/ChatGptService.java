@@ -36,27 +36,32 @@ public class ChatGptService {
         );
 
         String body = gson.toJson(chatGptRequest);
+        if (apiKey.matches("^[a-zA-Z0-9`~!@#$%^&*()-_=+\\[{\\]}\\\\|;:'\",<.>/?]+$")) {
 
-        Request request = new Request.Builder()
-                .url(API_URL)
-                .header("Content-Type", "application/json")
-                .header("Authorization", "Bearer " + apiKey)
-                .post(RequestBody.create(MediaType.parse("application/json"), body))
-                .build();
+            Request request = new Request.Builder()
+                    .url(API_URL)
+                    .header("Content-Type", "application/json")
+                    .header("Authorization", "Bearer " + apiKey)
+                    .post(RequestBody.create(MediaType.parse("application/json"), body))
+                    .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful()) {
-                ChatGptResponse chatGptResponse = gson.fromJson(response.body().string(), ChatGptResponse.class);
-                String answer = chatGptResponse.getChoices()[0].getText();
+            try (Response response = client.newCall(request).execute()) {
+                if (response.isSuccessful()) {
+                    ChatGptResponse chatGptResponse = gson.fromJson(response.body().string(), ChatGptResponse.class);
+                    String answer = chatGptResponse.getChoices()[0].getText();
 
-                if (!answer.isEmpty()) {
-                    return answer.replace("\n", "").trim();
+                    if (!answer.isEmpty()) {
+                        return answer.replace("\n", "").trim();
+                    } else {
+                        return "no answers found";
+                    }
                 } else {
-                    return "no answers found";
+                    return String.valueOf(response.code());
                 }
-            } else {
-                return String.valueOf(response.code());
             }
+        }
+        else {
+            return "токен содержит недопустимые символы";
         }
     }
 }

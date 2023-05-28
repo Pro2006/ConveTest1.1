@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
 
     // создание полей
     private Button yesButton, noButton;
-
     private String CHATGPT_TOKEN = "chatgtp_token";
+    private String TOKEN = "token";
     private SharedPreferences chatgpt_token_setting;
 
 
@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         yesButton = findViewById(R.id.yesButton);
         noButton = findViewById(R.id.noButton);
         chatgpt_token_setting = getSharedPreferences(CHATGPT_TOKEN, MODE_PRIVATE);
+        if (!chatgpt_token_setting.getString(TOKEN, "").equals("")) {
+            Intent intent = new Intent(getApplicationContext(), SecondActivity.class); // переключение обратно в активность демонстрации всех записей
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // установления флага экономии ресурсов
+            startActivity(intent);
+        }
 
 
         // обработка нажатия кнопки

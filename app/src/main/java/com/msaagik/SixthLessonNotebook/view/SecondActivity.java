@@ -4,16 +4,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.msaagik.SixthLessonNotebook.model.Notebook;
 import com.msaagik.SixthLessonNotebook.viewmodel.Adapter;
 import com.msaagik.SixthLessonNotebook.viewmodel.DatabaseHelper;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.msaggik.sixthlessonnotebook.R;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class SecondActivity extends AppCompatActivity {
     // создание полей
     private RecyclerView recyclerView; // поле для списка RecyclerView
     private FloatingActionButton fabAdd; // поле для кнопки добавить новую заметку
+
+    private ImageView btnSettings, btnInfo;
 
     private List<Notebook> notesList; // поле для контейнера списка заметок
 
@@ -39,6 +42,8 @@ public class SecondActivity extends AppCompatActivity {
         // присваивание id полям
         recyclerView = findViewById(R.id.recycler_list);
         fabAdd = findViewById(R.id.fabAdd);
+        btnSettings = findViewById(R.id.settingsBtnSecond);
+        btnInfo = findViewById(R.id.infoBtnSecond);
 
         notesList = new ArrayList<>(); // выделение памяти и задание типа контейнера для списка заметок
         database = new DatabaseHelper(this); // выделение памяти и задание текущего контекста работы с БД
@@ -51,24 +56,35 @@ public class SecondActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter); // передача в recyclerView адаптер
 
         // обработка нажатия кнопки создания новой заметки
-        fabAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // переключение на новую активность
-                startActivity(new Intent(SecondActivity.this, AddNotesActivity.class));
-            }
-        });
+        fabAdd.setOnClickListener(listener);
+        btnInfo.setOnClickListener(listener);
+        btnSettings.setOnClickListener(listener);
     }
 
+    private View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            // переключение на новую активность
+            if (view.getId() == R.id.fabAdd) {
+                startActivity(new Intent(SecondActivity.this, AddNotesActivity.class));
+            } else if (view.getId() == R.id.infoBtnSecond) {
+                startActivity(new Intent(getApplicationContext(), InstructionActivity.class));
+            } else if (view.getId() == R.id.settingsBtnSecond) {
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+
+            }
+        }
+    };
+
     // метод считывания из БД всех записей
-    public void fetchAllNotes(){
+    public void fetchAllNotes() {
         // чтение БД и запись данных в курсор
         Cursor cursor = database.readNotes();
 
         if (cursor.getCount() == 0) { // если данные отсутствую, то вывод на экран об этом тоста
             Toast.makeText(this, "Заметок нет", Toast.LENGTH_SHORT).show();
         } else { // иначе помещение их в контейнер данных notesList
-            while (cursor.moveToNext()){
+            while (cursor.moveToNext()) {
                 // помещение в контейнер notesList из курсора данных
                 notesList.add(new Notebook(cursor.getString(0), cursor.getString(1), cursor.getString(2)));
             }

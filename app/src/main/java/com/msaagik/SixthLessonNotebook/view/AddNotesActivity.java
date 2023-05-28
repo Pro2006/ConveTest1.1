@@ -61,44 +61,59 @@ public class AddNotesActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        if (!TextUtils.isEmpty(title.getText().toString()) && !TextUtils.isEmpty(description.getText().toString())) {
+
+            DatabaseHelper database = new DatabaseHelper(AddNotesActivity.this); // создание объекта БД в текущей активности
+            database.addNotes(title.getText().toString(), description.getText().toString()); // создание записи в БД
+
+            // создание намерения переключения активности
+            Intent intent = new Intent(AddNotesActivity.this, SecondActivity.class); // переключение обратно в активность демонстрации всех записей
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // установления флага экономии ресурсов
+            startActivity(intent);
+
+        } else { // иначе просто тост об отсутствии изменений
+            Toast.makeText(AddNotesActivity.this, "Необходимо заполнить оба поля", Toast.LENGTH_SHORT).show();
+        }
+        super.onBackPressed();
+    }
+
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.add_note:
-                    if (!TextUtils.isEmpty(title.getText().toString()) && !TextUtils.isEmpty(description.getText().toString())){
+            if (view.getId() == R.id.add_note) {
+                if (!TextUtils.isEmpty(title.getText().toString()) && !TextUtils.isEmpty(description.getText().toString())) {
 
-                        DatabaseHelper database = new DatabaseHelper(AddNotesActivity.this); // создание объекта БД в текущей активности
-                        database.addNotes(title.getText().toString(), description.getText().toString()); // создание записи в БД
+                    DatabaseHelper database = new DatabaseHelper(AddNotesActivity.this); // создание объекта БД в текущей активности
+                    database.addNotes(title.getText().toString(), description.getText().toString()); // создание записи в БД
 
-                        // создание намерения переключения активности
-                        Intent intent = new Intent(AddNotesActivity.this, SecondActivity.class); // переключение обратно в активность демонстрации всех записей
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // установления флага экономии ресурсов
-                        startActivity(intent);
-
-                        finish(); // при нажатии на кнопку назад действие уничтожается и проиходит переход в активность SecondActivity
-
-                    } else { // иначе просто тост об отсутствии изменений
-                        Toast.makeText(AddNotesActivity.this, "Необходимо заполнить оба поля", Toast.LENGTH_SHORT).show();
-                    }
-                case R.id.backBtnAdd:
+                    // создание намерения переключения активности
                     Intent intent = new Intent(AddNotesActivity.this, SecondActivity.class); // переключение обратно в активность демонстрации всех записей
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // установления флага экономии ресурсов
                     startActivity(intent);
-                case R.id.useBtnAdd:
-                    String result = null;
-                    Thread thread = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (result == null) {
-                                // Ваш код, который нужно выполнить в отдельном потоке
-                                String result = commandProcessor.Process(description.getText().toString(), settings.getString(TOKEN, "1"));
 
-                                updateTextView(result);}
+                } else { // иначе просто тост об отсутствии изменений
+                    Toast.makeText(AddNotesActivity.this, "Необходимо заполнить оба поля", Toast.LENGTH_SHORT).show();
+                }
+            } else if (view.getId() == R.id.backBtnAdd) {
+
+                finish();
+            } else if (view.getId() == R.id.useBtnAdd) {
+                String result = null;
+                Thread thread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (result == null) {
+                            // Ваш код, который нужно выполнить в отдельном потоке
+                            String result = commandProcessor.Process(description.getText().toString(), settings.getString(TOKEN, "1"));
+
+                            updateTextView(result);
                         }
-                    });
-                    thread.start();
-                    // место для обработки текстовым процессором editText
+                    }
+                });
+                thread.start();
+                // место для обработки текстовым процессором editText
             }
         }
     };

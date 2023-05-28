@@ -27,7 +27,7 @@
         android:layout_width="178dp"
         android:layout_height="19dp"
         android:gravity="top"
-        android:text="Enter the ChatGPT token"
+        android:text="Введите токен ChatGPT"
         android:textAppearance="@style/enter_the_c"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_width="333dp"
         android:layout_height="35dp"
         android:gravity="top"
-        android:text="(if you don\'t enter your token, Chatgpt will be unavailable to you, you can enter it later at any time)"
+        android:text="(если вы не сделаете это сейчас, то можно будет сделать этов люой момент в настройках)"
         android:textAppearance="@style/if_you_don_"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
         android:layout_height="40dp"
         android:background="@drawable/shape_token_enter"
         android:ems="10"
-        android:hint="Enter your token"
+        android:hint="Введите свой токен"
         android:inputType="text"
         android:textColor="#000000"
         android:textSize="13sp"
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:text=" pass this step"
+        android:text="Пропустить этот шаг"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:text="SAVE"
+        android:text="СОХРАНИТЬ"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,5 +94,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.573" />
+
+    <ImageView
+        android:id="@+id/infoBtnToken"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:src="@android:drawable/ic_menu_info_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
