@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SixthLessonNotebook</string>
+    <string name="app_name">ConveNote</string>
     <string name="chatgpt_tok">
 ChatGPT токен
 </string>
