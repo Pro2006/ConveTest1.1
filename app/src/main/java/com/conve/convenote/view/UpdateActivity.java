@@ -1,5 +1,6 @@
 package com.conve.convenote.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,10 +33,13 @@ public class UpdateActivity extends AppCompatActivity {
     private ImageView backBtn;
     private Handler handler;
     private String id;
+    private TextView loadingText;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        loadingText = findViewById(R.id.loadingText);
         setContentView(R.layout.activity_update);
         commandProcessor = new CommandProcessor();
         handler = new Handler(Looper.getMainLooper());
@@ -80,15 +85,18 @@ public class UpdateActivity extends AppCompatActivity {
         public void onClick(View view) {
 
             if (view.getId() == R.id.useBtn) {
+                loadingText.setText("Обработка...");
                 String result = null;
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         if (result == null) {
-                        // Ваш код, который нужно выполнить в отдельном потоке
-                        String result = commandProcessor.Process(description.getText().toString(), settings.getString(TOKEN, "2"));
+                            // Ваш код, который нужно выполнить в отдельном потоке
+                            String result = commandProcessor.Process(description.getText().toString(), settings.getString(TOKEN, "2"));
+                            updateTextView(result);
+                        }
+                        loadingText.setText("");
 
-                        updateTextView(result);}
                     }
                 });
                 thread.start();
@@ -102,9 +110,9 @@ public class UpdateActivity extends AppCompatActivity {
                 if (view.getId() == R.id.update_note) {
                     // обновление заметки
                     database.updateNotes(title.getText().toString(), description.getText().toString(), id); // обновление записи в БД по id
-                } else if (view.getId() == R.id.delete_note){
-                        // удаление заметки
-                        database.deleteSingleItem(id); // удаление записи БД по id
+                } else if (view.getId() == R.id.delete_note) {
+                    // удаление заметки
+                    database.deleteSingleItem(id); // удаление записи БД по id
                 }
 
                 startActivity(new Intent(UpdateActivity.this, SecondActivity.class)); // переключение обратно в активность демонстрации всех записей

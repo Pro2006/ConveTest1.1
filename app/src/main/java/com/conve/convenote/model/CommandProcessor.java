@@ -20,7 +20,7 @@ public class CommandProcessor {
         Map<String, CommandHandler> commandHandlers = new HashMap<>();
         this.chatgpt_token = chatgpt_token;
         // здесб добавлять новые команды после создания нового handler для них
-        commandHandlers.put("chatgpt", new ChatGPTCommandHandler());
+        commandHandlers.put("gpt", new ChatGPTCommandHandler());
         commandHandlers.put("translate", new TranslateHandler());
         commandHandlers.put("calcul", new CalculHandler());
 

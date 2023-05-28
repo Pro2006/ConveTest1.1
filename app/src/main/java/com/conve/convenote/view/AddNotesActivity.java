@@ -1,5 +1,6 @@
 package com.conve.convenote.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,14 +31,15 @@ public class AddNotesActivity extends AppCompatActivity {
     private Handler handler;
     private CommandProcessor commandProcessor;
     private Button addNote, useBtnAdd;
-
+    private TextView loadingText;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_notes);
         commandProcessor = new CommandProcessor();
         handler = new Handler(Looper.getMainLooper());
-
+        loadingText = findViewById(R.id.loadingText);
         // присваивание id полям
         title = findViewById(R.id.title_edit);
         description = findViewById(R.id.description_edit);
@@ -100,6 +103,7 @@ public class AddNotesActivity extends AppCompatActivity {
 
                 finish();
             } else if (view.getId() == R.id.useBtnAdd) {
+                loadingText.setText("Обработка...");
                 String result = null;
                 Thread thread = new Thread(new Runnable() {
                     @Override
@@ -107,8 +111,8 @@ public class AddNotesActivity extends AppCompatActivity {
                         if (result == null) {
                             // Ваш код, который нужно выполнить в отдельном потоке
                             String result = commandProcessor.Process(description.getText().toString(), settings.getString(TOKEN, "1"));
-
                             updateTextView(result);
+                            loadingText.setText("");
                         }
                     }
                 });
